@@ -8253,11 +8253,11 @@ int CheckStartJump(Object* p)
 int VangerUnit::CheckStartJump(void)
 {	
 	int st;
-	st = (MaxEnergy - ImpulsePower) / max_jump_power;
+	st = (MaxEnergy - ImpulsePower) / (10*max_jump_power);
 	if(Energy >  ImpulsePower){
 		Energy -= st;
 		jump_power++;
-		if(jump_power > max_jump_power)
+		if(jump_power > 10*max_jump_power)
 			return 1;
 		else
 			return 0;

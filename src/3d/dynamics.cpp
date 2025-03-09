@@ -2738,7 +2738,7 @@ void Object::direct_keyboard_control()
 		controls(CONTROLS::VIRTUAL_DOWN);
 
     	aciCurJumpImpulse = jump_power;
-	aciMaxJumpImpulse = max_jump_power;
+	aciMaxJumpImpulse = 10*max_jump_power;
 }
 #endif
 
