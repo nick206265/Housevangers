@@ -2738,7 +2738,7 @@ void Object::direct_keyboard_control()
 		controls(CONTROLS::VIRTUAL_DOWN);
 
     	aciCurJumpImpulse = jump_power;
-	aciMaxJumpImpulse = max_jump_power;
+	aciMaxJumpImpulse = 10*max_jump_power;
 }
 #endif
 
@@ -3471,7 +3471,7 @@ wheel_continue :
 		}
 
 	if(spring_touch || wheel_touch || in_water)
-		K -= DBV(0,0,(double)z_offset_of_mass_center*scale_real) % z_axis*g;
+		K -= DBV(0,0,(double)z_offset_of_mass_center*scale_real*10) % z_axis*g;
 
 
 	V += (F + A_g2l*F_global)*dt;

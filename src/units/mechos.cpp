@@ -8253,11 +8253,11 @@ int CheckStartJump(Object* p)
 int VangerUnit::CheckStartJump(void)
 {	
 	int st;
-	st = (MaxEnergy - ImpulsePower) / max_jump_power;
+	st = (MaxEnergy - ImpulsePower) / (10*max_jump_power);
 	if(Energy >  ImpulsePower){
 		Energy -= st;
 		jump_power++;
-		if(jump_power > max_jump_power)
+		if(jump_power > 10*max_jump_power)
 			return 1;
 		else
 			return 0;
@@ -9987,7 +9987,7 @@ void GunSlot::Fire(void)
 		case ACI_MACHOTINE_GUN_LIGHT:
 			if(ItemData->ActIntBuffer.data1 > 0){
 				GunStatus = GUN_FIRE;
-				ItemData->ActIntBuffer.data1--;
+				//ItemData->ActIntBuffer.data1--;
 
 				if(NetworkON) NetUpdate();
 
@@ -9998,7 +9998,7 @@ void GunSlot::Fire(void)
 		case ACI_GHORB_GEAR_LIGHT:
 			if(ItemData->ActIntBuffer.data1 > 0){
 				GunStatus = GUN_FIRE;
-				ItemData->ActIntBuffer.data1--;
+				//ItemData->ActIntBuffer.data1--;
 				if(NetworkON) NetUpdate();
 				if(ActD.Active)
 					SOUND_GHORB_SHOT(getDistX(ActD.Active->R_curr.x,Owner->R_curr.x));
@@ -10007,7 +10007,7 @@ void GunSlot::Fire(void)
 		case ACI_GHORB_GEAR_HEAVY:
 			if(ItemData->ActIntBuffer.data1 > 0){
 				GunStatus = GUN_FIRE;
-				ItemData->ActIntBuffer.data1--;
+				//ItemData->ActIntBuffer.data1--;
 				if(NetworkON) NetUpdate();
 				if(ActD.Active)
 					SOUND_GHORB_BIG_SHOT(getDistX(ActD.Active->R_curr.x,Owner->R_curr.x));
@@ -10035,7 +10035,7 @@ void GunSlot::Fire(void)
 					};
 				};
 				GunStatus = GUN_FIRE;
-				ItemData->ActIntBuffer.data1--;
+				//ItemData->ActIntBuffer.data1--;
 				if(NetworkON) NetUpdate();
 				if(ActD.Active)
 					SOUND_SPEETLE_SHOT(getDistX(ActD.Active->R_curr.x,Owner->R_curr.x));
@@ -10076,7 +10076,7 @@ void GunSlot::Fire(void)
 		case ACI_CRUSTEST_CANNON:
 			if(ItemData->ActIntBuffer.data1 > 0){
 				GunStatus = GUN_FIRE;
-				ItemData->ActIntBuffer.data1--;
+				//ItemData->ActIntBuffer.data1--;
 				if(NetworkON) NetUpdate();
 				if(ActD.Active)
 					SOUND_CRUSTEST_SHOT(getDistX(ActD.Active->R_curr.x,Owner->R_curr.x));
@@ -10111,7 +10111,7 @@ void GunSlot::Fire(void)
 				};
 
 				GunStatus = GUN_FIRE;
-				ItemData->ActIntBuffer.data1--;
+				//ItemData->ActIntBuffer.data1--;
 				if(NetworkON) NetUpdate();
 				if(ActD.Active)
 					SOUND_TERMINATOR_SHOT(getDistX(ActD.Active->R_curr.x,Owner->R_curr.x));
@@ -10159,7 +10159,7 @@ void GunSlot::Fire(void)
 				p = (Object*)(p->NextTypeList);
 			};
 			GunStatus = GUN_FIRE;
-			ItemData->ActIntBuffer.data1--;
+			//ItemData->ActIntBuffer.data1--;
 			if(NetworkON) NetUpdate();
 
 			if(ActD.Active)
